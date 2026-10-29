@@ -17,3 +17,12 @@ O bot usa polling e precisa de um processo em execução para responder. Para fu
 
 ## Segurança
 Nunca coloque o token diretamente no código ou num commit. Guarde-o em variável de ambiente `BOT_TOKEN`. O ficheiro `.env` está ignorado pelo Git.
+
+## Configurar destinatários PIX
+O menu exibe os nomes automaticamente. Os números de CPF e telefone **não são guardados no repositório público**. Configure no servidor uma variável de ambiente `PIX_KEYS_JSON` com JSON no formato:
+
+```json
+{"neusa":{"name":"Nome completo","type":"CPF","key":"CPF sem pontuação"},"atalia":{"name":"Nome completo","type":"Celular","key":"Telefone","bank":"Banco opcional"}}
+```
+
+IDs aceitos: `neusa`, `atalia`, `eduardo`, `messias`, `gabriela`, `mariza`, `ligartina`. Sem configuração, o bot informa que os dados estão temporariamente indisponíveis. Para copiar a chave no Telegram, o botão envia o valor em mensagem separada.
